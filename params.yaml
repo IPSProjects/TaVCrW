@@ -1,0 +1,8 @@
+MLModel:
+    use_energy: true
+    use_forces: true
+    use_stresses: false
+ReadNPZ:
+    regex: 4comp.cfg_train_*
+ReadNPZ_1:
+    regex: 4comp.cfg_valid_0

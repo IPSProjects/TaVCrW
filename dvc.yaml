@@ -1,0 +1,89 @@
+plots:
+- nodes/MLModel/training.csv:
+    template: dvc_plots/templates/y_log.json
+    x: epoch
+    y:
+    - loss
+    - rmse_e_per_atom
+    - rmse_f
+stages:
+  MLModel:
+    cmd: zntrack run ipsuite.nodes.MACE --name MLModel
+    deps:
+    - nodes/ReadNPZ/atoms.h5
+    - nodes/ReadNPZ/node-meta.json
+    - nodes/ReadNPZ_1/atoms.h5
+    - nodes/ReadNPZ_1/node-meta.json
+    metrics:
+    - nodes/MLModel/node-meta.json:
+        cache: false
+    outs:
+    - nodes/MLModel/model
+    - nodes/MLModel/test-data.extxyz
+    - nodes/MLModel/train-data.extxyz
+    - nodes/MLModel/training.csv
+    params:
+    - MLModel
+    - mace.yaml:
+  Prediction:
+    cmd: zntrack run ipsuite.nodes.Prediction --name Prediction
+    deps:
+    - nodes/MLModel/model
+    - nodes/MLModel/node-meta.json
+    - nodes/MLModel/test-data.extxyz
+    - nodes/MLModel/train-data.extxyz
+    - nodes/MLModel/training.csv
+    - nodes/ReadNPZ_1/atoms.h5
+    - nodes/ReadNPZ_1/node-meta.json
+    metrics:
+    - nodes/Prediction/node-meta.json:
+        cache: false
+    outs:
+    - nodes/Prediction/atoms.h5
+  PredictionMetrics:
+    cmd: zntrack run ipsuite.nodes.PredictionMetrics --name PredictionMetrics
+    deps:
+    - nodes/Prediction/atoms.h5
+    - nodes/Prediction/node-meta.json
+    metrics:
+    - nodes/PredictionMetrics/deviat_stress.json:
+        cache: false
+    - nodes/PredictionMetrics/energy.json:
+        cache: false
+    - nodes/PredictionMetrics/forces.json:
+        cache: false
+    - nodes/PredictionMetrics/hydro_stress.json:
+        cache: false
+    - nodes/PredictionMetrics/node-meta.json:
+        cache: false
+    - nodes/PredictionMetrics/stress.json:
+        cache: false
+    outs:
+    - nodes/PredictionMetrics/energy_df.csv
+    - nodes/PredictionMetrics/forces_df.csv
+    - nodes/PredictionMetrics/plots
+    - nodes/PredictionMetrics/stress_deviatoric_df.csv
+    - nodes/PredictionMetrics/stress_df.csv
+    - nodes/PredictionMetrics/stress_hydrostatic_df.csv
+  ReadNPZ:
+    cmd: zntrack run src.ReadNPZ --name ReadNPZ
+    deps:
+    - data
+    metrics:
+    - nodes/ReadNPZ/node-meta.json:
+        cache: false
+    outs:
+    - nodes/ReadNPZ/atoms.h5
+    params:
+    - ReadNPZ
+  ReadNPZ_1:
+    cmd: zntrack run src.ReadNPZ --name ReadNPZ_1
+    deps:
+    - data
+    metrics:
+    - nodes/ReadNPZ_1/node-meta.json:
+        cache: false
+    outs:
+    - nodes/ReadNPZ_1/atoms.h5
+    params:
+    - ReadNPZ_1
