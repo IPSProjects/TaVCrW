@@ -83,7 +83,7 @@ stages:
         num_interactions: 2
         num_radial_basis: 8
         patience: 20
-        r_max: 4.0
+        r_max: 4.2
         seed: 42
         start_swa: 600
         swa: true
@@ -91,12 +91,12 @@ stages:
     outs:
     - path: nodes/MLModel/model
       hash: md5
-      md5: 1f2ba7ce2bbd68644ac7ef8137346482.dir
-      size: 148459515
+      md5: b39b3253231ed702aa87f9a914d5204b.dir
+      size: 147795037
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: f363f991e9b8721668d4c0601fde252d
+      md5: eb48a95bbf15c0aff879d8df92672c51
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
@@ -108,19 +108,19 @@ stages:
       size: 25058819
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: 42d1768591123a5b41c8ce864712a2f8
-      size: 174183
+      md5: 6b9276d2d04198e99fda371e0fbd14de
+      size: 161019
   Prediction:
     cmd: zntrack run ipsuite.nodes.Prediction --name Prediction
     deps:
     - path: nodes/MLModel/model
       hash: md5
-      md5: 1f2ba7ce2bbd68644ac7ef8137346482.dir
-      size: 148459515
+      md5: b39b3253231ed702aa87f9a914d5204b.dir
+      size: 147795037
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: f363f991e9b8721668d4c0601fde252d
+      md5: eb48a95bbf15c0aff879d8df92672c51
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
@@ -132,8 +132,8 @@ stages:
       size: 25058819
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: 42d1768591123a5b41c8ce864712a2f8
-      size: 174183
+      md5: 6b9276d2d04198e99fda371e0fbd14de
+      size: 161019
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
       md5: bf53178639cadcac6799953490ab0d9d
@@ -145,9 +145,9 @@ stages:
     outs:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 57f2f6b463c8a046b0d7cbafc2c020f8
+      md5: 058f2e6945c7baf7750763da06edc602
       size: 2977424
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: efc36dede3a0545750ce1e78b5061de7
+      md5: 7d8dc33045a72d2ab5bc3a96a91683d8
       size: 48
