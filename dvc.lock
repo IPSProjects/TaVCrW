@@ -47,11 +47,11 @@ stages:
     deps:
     - path: nodes/ReadNPZ/atoms.h5
       hash: md5
-      md5: 5add39d607eb903e595b371d53188206
-      size: 11751288
+      md5: 3f7bac0e01db90363679dd073eeca7c4
+      size: 116124056
     - path: nodes/ReadNPZ/node-meta.json
       hash: md5
-      md5: 8e451528d150697472c80ffd370f3974
+      md5: 89017625f783c3e27a2b96eecbc592f9
       size: 48
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
@@ -69,34 +69,34 @@ stages:
           use_stresses: false
       mace.yaml:
         E0s: average
-        batch_size: 2
+        batch_size: 32
         clip_grad: 1.0
-        correlation: 2
+        correlation: 3
         ema: true
         ema_decay: 0.99
-        eval_interval: 4
+        eval_interval: 1
         forces_weight: 100
         max_L: 2
-        max_num_epochs: 2000
-        num_channels: 128
+        max_num_epochs: 1200
+        num_channels: 64
         num_cutoff_basis: 5
         num_interactions: 2
         num_radial_basis: 8
         patience: 20
-        r_max: 5.0
+        r_max: 4.0
         seed: 42
-        start_swa: 1000
+        start_swa: 600
         swa: true
-        valid_batch_size: 2
+        valid_batch_size: 32
     outs:
     - path: nodes/MLModel/model
       hash: md5
-      md5: 312f66cdc0d9271f6aa9ba82fe69ec0c.dir
-      size: 128838418
+      md5: 1f2ba7ce2bbd68644ac7ef8137346482.dir
+      size: 148459515
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: 96d3ea849df2981772893d55313f907c
+      md5: f363f991e9b8721668d4c0601fde252d
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
@@ -104,23 +104,23 @@ stages:
       size: 620849
     - path: nodes/MLModel/train-data.extxyz
       hash: md5
-      md5: 3c0fd595bcf59fcb935e8d74d68ee3c9
-      size: 2459387
+      md5: c1a47781b28c11c121cec9403084de92
+      size: 25058819
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: 5197fdc954ec8ef8d8711fb533e73c52
-      size: 88323
+      md5: 42d1768591123a5b41c8ce864712a2f8
+      size: 174183
   Prediction:
     cmd: zntrack run ipsuite.nodes.Prediction --name Prediction
     deps:
     - path: nodes/MLModel/model
       hash: md5
-      md5: 312f66cdc0d9271f6aa9ba82fe69ec0c.dir
-      size: 128838418
+      md5: 1f2ba7ce2bbd68644ac7ef8137346482.dir
+      size: 148459515
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: 96d3ea849df2981772893d55313f907c
+      md5: f363f991e9b8721668d4c0601fde252d
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
@@ -128,12 +128,12 @@ stages:
       size: 620849
     - path: nodes/MLModel/train-data.extxyz
       hash: md5
-      md5: 3c0fd595bcf59fcb935e8d74d68ee3c9
-      size: 2459387
+      md5: c1a47781b28c11c121cec9403084de92
+      size: 25058819
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: 5197fdc954ec8ef8d8711fb533e73c52
-      size: 88323
+      md5: 42d1768591123a5b41c8ce864712a2f8
+      size: 174183
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
       md5: bf53178639cadcac6799953490ab0d9d
@@ -145,9 +145,9 @@ stages:
     outs:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 791b6130e49863134b1917256acf960a
+      md5: 57f2f6b463c8a046b0d7cbafc2c020f8
       size: 2977424
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 9b8074be65f8adf63388bc55d465ee14
+      md5: efc36dede3a0545750ce1e78b5061de7
       size: 48
