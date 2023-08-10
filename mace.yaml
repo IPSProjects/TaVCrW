@@ -9,7 +9,7 @@ batch_size: 32
 num_channels: 64
 max_L: 2
 correlation: 3
-r_max: 4.5
+r_max: 4.7
 forces_weight: 100
 
 clip_grad: 1.0
