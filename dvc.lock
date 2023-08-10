@@ -151,3 +151,64 @@ stages:
       hash: md5
       md5: efc36dede3a0545750ce1e78b5061de7
       size: 48
+  PredictionMetrics:
+    cmd: zntrack run ipsuite.nodes.PredictionMetrics --name PredictionMetrics
+    deps:
+    - path: nodes/Prediction/atoms.h5
+      hash: md5
+      md5: 57f2f6b463c8a046b0d7cbafc2c020f8
+      size: 2977424
+    - path: nodes/Prediction/node-meta.json
+      hash: md5
+      md5: efc36dede3a0545750ce1e78b5061de7
+      size: 48
+    outs:
+    - path: nodes/PredictionMetrics/deviat_stress.json
+      hash: md5
+      md5: c90a09cc618622886644bdb758afbe89
+      size: 159
+    - path: nodes/PredictionMetrics/energy.json
+      hash: md5
+      md5: 5b920a24c8dca7d8c357d7e1fc388dfe
+      size: 159
+    - path: nodes/PredictionMetrics/energy_df.csv
+      hash: md5
+      md5: e8bc980e2b438d795d913d50ebf76d40
+      size: 4214
+    - path: nodes/PredictionMetrics/forces.json
+      hash: md5
+      md5: 056a70dc83ebc6b8f89e6ca5b963b074
+      size: 171
+    - path: nodes/PredictionMetrics/forces_df.csv
+      hash: md5
+      md5: 5924042c70a8d5cf6bd3a814c784be2d
+      size: 771045
+    - path: nodes/PredictionMetrics/hydro_stress.json
+      hash: md5
+      md5: 0e0dca60dbebfb5cc0f010b4116bac57
+      size: 159
+    - path: nodes/PredictionMetrics/node-meta.json
+      hash: md5
+      md5: f21d5a0fd8798da249fd9ec31318fa06
+      size: 48
+    - path: nodes/PredictionMetrics/plots
+      hash: md5
+      md5: b65f78b288e696df3e1b6f7074ccc15b.dir
+      size: 208977
+      nfiles: 5
+    - path: nodes/PredictionMetrics/stress.json
+      hash: md5
+      md5: 0c39eeeb49a61ad2b64d7a02d643049d
+      size: 155
+    - path: nodes/PredictionMetrics/stress_deviatoric_df.csv
+      hash: md5
+      md5: 7a245a5ff6883abd80dd3e481b534d92
+      size: 41281
+    - path: nodes/PredictionMetrics/stress_df.csv
+      hash: md5
+      md5: 53c6799c308db1d7cdc8bbd428d3ff74
+      size: 36521
+    - path: nodes/PredictionMetrics/stress_hydrostatic_df.csv
+      hash: md5
+      md5: 0171f6bde26bf98bd999f0e4b6e81942
+      size: 4984
