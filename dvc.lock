@@ -32,26 +32,26 @@ stages:
     params:
       params.yaml:
         ReadNPZ:
-          regex: 4comp.cfg_train_*
+          regex: 4comp.cfg_train_0
     outs:
     - path: nodes/ReadNPZ/atoms.h5
       hash: md5
-      md5: 3f7bac0e01db90363679dd073eeca7c4
-      size: 116124056
+      md5: ddc44a95cc2a1a4dbe966a0974058394
+      size: 11751288
     - path: nodes/ReadNPZ/node-meta.json
       hash: md5
-      md5: 89017625f783c3e27a2b96eecbc592f9
+      md5: 250e383a5677f4d90d1f98b87b1478e7
       size: 48
   MLModel:
     cmd: zntrack run ipsuite.nodes.MACE --name MLModel
     deps:
     - path: nodes/ReadNPZ/atoms.h5
       hash: md5
-      md5: 3f7bac0e01db90363679dd073eeca7c4
-      size: 116124056
+      md5: ddc44a95cc2a1a4dbe966a0974058394
+      size: 11751288
     - path: nodes/ReadNPZ/node-meta.json
       hash: md5
-      md5: 89017625f783c3e27a2b96eecbc592f9
+      md5: 250e383a5677f4d90d1f98b87b1478e7
       size: 48
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
@@ -91,12 +91,12 @@ stages:
     outs:
     - path: nodes/MLModel/model
       hash: md5
-      md5: e4772a919194349e10241e92e3c54f51.dir
-      size: 149497711
+      md5: b231e9e8d55824bc65a8df35800114cf.dir
+      size: 140779848
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: 0da852e1ceb874d3e71b7c12d721737d
+      md5: 490cc0c5259f74ece4124198adf75bd9
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
@@ -104,23 +104,23 @@ stages:
       size: 620849
     - path: nodes/MLModel/train-data.extxyz
       hash: md5
-      md5: c1a47781b28c11c121cec9403084de92
-      size: 25058819
+      md5: fe763a3e4452b1c1ce6e5fc9b23c0413
+      size: 2459387
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: 904a67580df2bc4a7a1810cff2e7bfcb
-      size: 194528
+      md5: b874f10f7a40549684b770cf2fc20d0f
+      size: 193536
   Prediction:
     cmd: zntrack run ipsuite.nodes.Prediction --name Prediction
     deps:
     - path: nodes/MLModel/model
       hash: md5
-      md5: e4772a919194349e10241e92e3c54f51.dir
-      size: 149497711
+      md5: b231e9e8d55824bc65a8df35800114cf.dir
+      size: 140779848
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: 0da852e1ceb874d3e71b7c12d721737d
+      md5: 490cc0c5259f74ece4124198adf75bd9
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
@@ -128,12 +128,12 @@ stages:
       size: 620849
     - path: nodes/MLModel/train-data.extxyz
       hash: md5
-      md5: c1a47781b28c11c121cec9403084de92
-      size: 25058819
+      md5: fe763a3e4452b1c1ce6e5fc9b23c0413
+      size: 2459387
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: 904a67580df2bc4a7a1810cff2e7bfcb
-      size: 194528
+      md5: b874f10f7a40549684b770cf2fc20d0f
+      size: 193536
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
       md5: bf53178639cadcac6799953490ab0d9d
@@ -145,70 +145,70 @@ stages:
     outs:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 131dfcebca7d2775d27d459ac5b31ca9
+      md5: 4f5354f115595a54da72cb1cc24983d1
       size: 2977424
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 6fa0e3abeb06f79e41557e171dd6e0ae
+      md5: 0bba576bdc91590553b4bacae09d9d38
       size: 48
   PredictionMetrics:
     cmd: zntrack run ipsuite.nodes.PredictionMetrics --name PredictionMetrics
     deps:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 131dfcebca7d2775d27d459ac5b31ca9
+      md5: 4f5354f115595a54da72cb1cc24983d1
       size: 2977424
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 6fa0e3abeb06f79e41557e171dd6e0ae
+      md5: 0bba576bdc91590553b4bacae09d9d38
       size: 48
     outs:
     - path: nodes/PredictionMetrics/deviat_stress.json
       hash: md5
-      md5: 3043a20ac616f3d468397dc09eb2c568
+      md5: 651b38f52aa819f681ded075ae1da4c8
       size: 163
     - path: nodes/PredictionMetrics/energy.json
       hash: md5
-      md5: e96ccbe67de68c016c666775a16c2710
-      size: 158
+      md5: aaa9bc24cc452e6bf30a4e383fa6710a
+      size: 157
     - path: nodes/PredictionMetrics/energy_df.csv
       hash: md5
-      md5: 187a4e1ea4953ca17a33e422f2546b73
-      size: 4217
+      md5: be4502ab60f2019ce500255ccfb228ed
+      size: 4216
     - path: nodes/PredictionMetrics/forces.json
       hash: md5
-      md5: 8543f489ffc030a70c6450125b5854e7
-      size: 172
+      md5: 6bf0b3718c6141898166799e0b74b1cd
+      size: 169
     - path: nodes/PredictionMetrics/forces_df.csv
       hash: md5
-      md5: c69c8904ab53d63889f6e33cedfaf4cf
-      size: 770927
+      md5: d569eef02218e90dcf441315cb852ead
+      size: 769046
     - path: nodes/PredictionMetrics/hydro_stress.json
       hash: md5
-      md5: 10b3df23d7cf8df21950121ec5849766
+      md5: 1cf788b43e8448d55e77f7965515cbdc
       size: 159
     - path: nodes/PredictionMetrics/node-meta.json
       hash: md5
-      md5: c9cf1f3475f4693efa042879fa9343ac
+      md5: f843bc06657769c72935118107bcdd47
       size: 48
     - path: nodes/PredictionMetrics/plots
       hash: md5
-      md5: c93f1e8e50c9c98f745c3a1789523a04.dir
-      size: 208647
+      md5: f388116c7601396753771f3dce17b698.dir
+      size: 252994
       nfiles: 5
     - path: nodes/PredictionMetrics/stress.json
       hash: md5
-      md5: a4ab4852264e0c08977ed4127787ce52
-      size: 158
+      md5: 1f5d0242bc1479259ce7bef13eb5330d
+      size: 157
     - path: nodes/PredictionMetrics/stress_deviatoric_df.csv
       hash: md5
-      md5: 34a4a119cc0397f04a8e1d53066cf385
-      size: 41318
+      md5: 4d5bf009fe2c2dba31de4e82d80acdb8
+      size: 41285
     - path: nodes/PredictionMetrics/stress_df.csv
       hash: md5
-      md5: 6297825a345232032c26f6fd71dbdd86
-      size: 36536
+      md5: 45a554e20d47808a08946b1ec3e63d77
+      size: 36527
     - path: nodes/PredictionMetrics/stress_hydrostatic_df.csv
       hash: md5
-      md5: 6c4b72b3d583de27901ae405dbd116f6
-      size: 4985
+      md5: a68096f1865fdd803d92fbb8e9c0aed3
+      size: 4970
