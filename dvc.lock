@@ -5,61 +5,61 @@ stages:
     deps:
     - path: data
       hash: md5
-      md5: 6286f5d842e836292740d14fc4998159.dir
+      md5: acf760c97d2466ffa190a5b6c58fe260.dir
       size: 249204412
-      nfiles: 67117
+      nfiles: 67167
     params:
       params.yaml:
         ReadNPZ_1:
-          regex: 4comp.cfg_valid_0
+          regex: 4comp.cfg_valid_1
     outs:
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
-      md5: bf53178639cadcac6799953490ab0d9d
+      md5: 159d8492252883ace114fd33a144eda0
       size: 2971432
     - path: nodes/ReadNPZ_1/node-meta.json
       hash: md5
-      md5: 9d28aa8b0cc5f6c9f8c69db9f89566c4
+      md5: 6b3ca2d8d081b70fa19002b33cb5a05f
       size: 48
   ReadNPZ:
     cmd: zntrack run src.ReadNPZ --name ReadNPZ
     deps:
     - path: data
       hash: md5
-      md5: 6286f5d842e836292740d14fc4998159.dir
+      md5: acf760c97d2466ffa190a5b6c58fe260.dir
       size: 249204412
-      nfiles: 67117
+      nfiles: 67167
     params:
       params.yaml:
         ReadNPZ:
-          regex: 4comp.cfg_train_0
+          regex: 4comp.cfg_train_1
     outs:
     - path: nodes/ReadNPZ/atoms.h5
       hash: md5
-      md5: ddc44a95cc2a1a4dbe966a0974058394
+      md5: 82282250d0273fbc4fb3ad52f5ce1782
       size: 11751288
     - path: nodes/ReadNPZ/node-meta.json
       hash: md5
-      md5: 250e383a5677f4d90d1f98b87b1478e7
+      md5: 27703a2525e0e804471ca6216a5bf962
       size: 48
   MLModel:
     cmd: zntrack run ipsuite.nodes.MACE --name MLModel
     deps:
     - path: nodes/ReadNPZ/atoms.h5
       hash: md5
-      md5: ddc44a95cc2a1a4dbe966a0974058394
+      md5: 82282250d0273fbc4fb3ad52f5ce1782
       size: 11751288
     - path: nodes/ReadNPZ/node-meta.json
       hash: md5
-      md5: 250e383a5677f4d90d1f98b87b1478e7
+      md5: 27703a2525e0e804471ca6216a5bf962
       size: 48
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
-      md5: bf53178639cadcac6799953490ab0d9d
+      md5: 159d8492252883ace114fd33a144eda0
       size: 2971432
     - path: nodes/ReadNPZ_1/node-meta.json
       hash: md5
-      md5: 9d28aa8b0cc5f6c9f8c69db9f89566c4
+      md5: 6b3ca2d8d081b70fa19002b33cb5a05f
       size: 48
     params:
       params.yaml:
@@ -69,7 +69,7 @@ stages:
           use_stresses: false
       mace.yaml:
         E0s: average
-        batch_size: 32
+        batch_size: 16
         clip_grad: 1.0
         correlation: 3
         ema: true
@@ -82,133 +82,133 @@ stages:
         num_cutoff_basis: 5
         num_interactions: 2
         num_radial_basis: 8
-        patience: 20
+        patience: 200
         r_max: 4.7
         seed: 42
         start_swa: 600
         swa: true
-        valid_batch_size: 32
+        valid_batch_size: 16
     outs:
     - path: nodes/MLModel/model
       hash: md5
-      md5: b231e9e8d55824bc65a8df35800114cf.dir
-      size: 140779848
+      md5: 265a4f3f2c4d2dbc6fc6c6e4d5543b6b.dir
+      size: 141810786
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: 490cc0c5259f74ece4124198adf75bd9
+      md5: 65300b6119926c65f6e1b3adc87359b4
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
-      md5: 3c9e9d66817c626de9def3186b219811
-      size: 620849
+      md5: e36e56c5cdc5002531df9bababa81871
+      size: 552536
     - path: nodes/MLModel/train-data.extxyz
       hash: md5
-      md5: fe763a3e4452b1c1ce6e5fc9b23c0413
-      size: 2459387
+      md5: dc0496b374287f768d7128f852751888
+      size: 2527700
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: b874f10f7a40549684b770cf2fc20d0f
-      size: 193536
+      md5: 529a4d1a9007a97afecc8b7d76ab346e
+      size: 200990
   Prediction:
     cmd: zntrack run ipsuite.nodes.Prediction --name Prediction
     deps:
     - path: nodes/MLModel/model
       hash: md5
-      md5: b231e9e8d55824bc65a8df35800114cf.dir
-      size: 140779848
+      md5: 265a4f3f2c4d2dbc6fc6c6e4d5543b6b.dir
+      size: 141810786
       nfiles: 8
     - path: nodes/MLModel/node-meta.json
       hash: md5
-      md5: 490cc0c5259f74ece4124198adf75bd9
+      md5: 65300b6119926c65f6e1b3adc87359b4
       size: 48
     - path: nodes/MLModel/test-data.extxyz
       hash: md5
-      md5: 3c9e9d66817c626de9def3186b219811
-      size: 620849
+      md5: e36e56c5cdc5002531df9bababa81871
+      size: 552536
     - path: nodes/MLModel/train-data.extxyz
       hash: md5
-      md5: fe763a3e4452b1c1ce6e5fc9b23c0413
-      size: 2459387
+      md5: dc0496b374287f768d7128f852751888
+      size: 2527700
     - path: nodes/MLModel/training.csv
       hash: md5
-      md5: b874f10f7a40549684b770cf2fc20d0f
-      size: 193536
+      md5: 529a4d1a9007a97afecc8b7d76ab346e
+      size: 200990
     - path: nodes/ReadNPZ_1/atoms.h5
       hash: md5
-      md5: bf53178639cadcac6799953490ab0d9d
+      md5: 159d8492252883ace114fd33a144eda0
       size: 2971432
     - path: nodes/ReadNPZ_1/node-meta.json
       hash: md5
-      md5: 9d28aa8b0cc5f6c9f8c69db9f89566c4
+      md5: 6b3ca2d8d081b70fa19002b33cb5a05f
       size: 48
     outs:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 4f5354f115595a54da72cb1cc24983d1
+      md5: d5bc2c3367d6b3c540280c37efd8bf70
       size: 2977424
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 0bba576bdc91590553b4bacae09d9d38
+      md5: 5a54e64bb4beea390329a0e6612453f9
       size: 48
   PredictionMetrics:
     cmd: zntrack run ipsuite.nodes.PredictionMetrics --name PredictionMetrics
     deps:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 4f5354f115595a54da72cb1cc24983d1
+      md5: d5bc2c3367d6b3c540280c37efd8bf70
       size: 2977424
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 0bba576bdc91590553b4bacae09d9d38
+      md5: 5a54e64bb4beea390329a0e6612453f9
       size: 48
     outs:
     - path: nodes/PredictionMetrics/deviat_stress.json
       hash: md5
-      md5: 651b38f52aa819f681ded075ae1da4c8
-      size: 163
+      md5: 09cf61bf9d3bbe7f3da80ef7f2d6d413
+      size: 160
     - path: nodes/PredictionMetrics/energy.json
       hash: md5
-      md5: aaa9bc24cc452e6bf30a4e383fa6710a
-      size: 157
+      md5: 01fa62f5f26f953c5c31c824bfb15638
+      size: 167
     - path: nodes/PredictionMetrics/energy_df.csv
       hash: md5
-      md5: be4502ab60f2019ce500255ccfb228ed
-      size: 4216
+      md5: 61df7deb2a47b7aa8f09d83be7331bf6
+      size: 4193
     - path: nodes/PredictionMetrics/forces.json
       hash: md5
-      md5: 6bf0b3718c6141898166799e0b74b1cd
-      size: 169
+      md5: 64f7bfe78d94a2506ff66c5089b8b0a2
+      size: 168
     - path: nodes/PredictionMetrics/forces_df.csv
       hash: md5
-      md5: d569eef02218e90dcf441315cb852ead
-      size: 769046
+      md5: bba3c874e611640eb334db12f4d4d767
+      size: 687609
     - path: nodes/PredictionMetrics/hydro_stress.json
       hash: md5
-      md5: 1cf788b43e8448d55e77f7965515cbdc
-      size: 159
+      md5: 53cb71e9f1c25a724408381a7542cf71
+      size: 157
     - path: nodes/PredictionMetrics/node-meta.json
       hash: md5
-      md5: f843bc06657769c72935118107bcdd47
+      md5: a21b53ee406097c629dab6800e623df3
       size: 48
     - path: nodes/PredictionMetrics/plots
       hash: md5
-      md5: f388116c7601396753771f3dce17b698.dir
-      size: 252994
+      md5: 06fbaa0021eeed1389d1e0b36ce8a334.dir
+      size: 251105
       nfiles: 5
     - path: nodes/PredictionMetrics/stress.json
       hash: md5
-      md5: 1f5d0242bc1479259ce7bef13eb5330d
-      size: 157
+      md5: dd99d2280efdd95ea778f97ea578faf2
+      size: 158
     - path: nodes/PredictionMetrics/stress_deviatoric_df.csv
       hash: md5
-      md5: 4d5bf009fe2c2dba31de4e82d80acdb8
-      size: 41285
+      md5: 84fdb3b45afe205529c3a76acdb9d3e3
+      size: 41191
     - path: nodes/PredictionMetrics/stress_df.csv
       hash: md5
-      md5: 45a554e20d47808a08946b1ec3e63d77
-      size: 36527
+      md5: 41888a7d011bef833e75c65b1d24c645
+      size: 36751
     - path: nodes/PredictionMetrics/stress_hydrostatic_df.csv
       hash: md5
-      md5: a68096f1865fdd803d92fbb8e9c0aed3
-      size: 4970
+      md5: 5b516999ac212cc9befbd4111e7405c6
+      size: 5115

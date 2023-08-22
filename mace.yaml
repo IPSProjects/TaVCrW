@@ -2,7 +2,7 @@ max_num_epochs: 1200
 
 
 E0s: average
-batch_size: 32
+batch_size: 16
 
 # hidden_irreps: 128x0e + 128x1o
 # num_channels + maxL = hidden_irreps
@@ -23,9 +23,9 @@ start_swa: 600
 
 # early stopping patience with eval 2 -> 100 epochs
 # if patience, swa starts automatically
-patience: 20
+patience: 200
 
-valid_batch_size: 32
+valid_batch_size: 16
 eval_interval: 1
 
 num_cutoff_basis: 5
