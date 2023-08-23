@@ -136,82 +136,82 @@ stages:
       size: 200990
     - path: nodes/TestData/atoms.h5
       hash: md5
-      md5: 9d08154c62be75c9c6d762b3d8ea3af7
-      size: 3554440
+      md5: c1f9176afce816838c71ffe220ad0bdf
+      size: 65880
     - path: nodes/TestData/node-meta.json
       hash: md5
-      md5: e8fe108739715c6bcd2cf9e25ce361ba
+      md5: 0a7c085dc219851d4508b7339c68cee8
       size: 48
     outs:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 42389bdb174852e2622fbebb81265b03
-      size: 3560432
+      md5: f48f0701e4a2b5b26d2b3acc3bd11c3b
+      size: 69824
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 46110cbb5836084f62de635d497a35a1
+      md5: 2ce422f96254f9f3b36a61107d0203c1
       size: 48
   PredictionMetrics:
     cmd: zntrack run ipsuite.nodes.PredictionMetrics --name PredictionMetrics
     deps:
     - path: nodes/Prediction/atoms.h5
       hash: md5
-      md5: 42389bdb174852e2622fbebb81265b03
-      size: 3560432
+      md5: f48f0701e4a2b5b26d2b3acc3bd11c3b
+      size: 69824
     - path: nodes/Prediction/node-meta.json
       hash: md5
-      md5: 46110cbb5836084f62de635d497a35a1
+      md5: 2ce422f96254f9f3b36a61107d0203c1
       size: 48
     outs:
     - path: nodes/PredictionMetrics/deviat_stress.json
       hash: md5
-      md5: b672aca18c29b16dba207acd43873256
-      size: 202
+      md5: a4128a36f8b6dd5d05ea8244fd7ceb16
+      size: 185
     - path: nodes/PredictionMetrics/energy.json
       hash: md5
-      md5: b695da63c1cdb1e71f45e98ee8c168d6
-      size: 186
+      md5: 709e274ccca4358590491d83136c8a38
+      size: 180
     - path: nodes/PredictionMetrics/energy_df.csv
       hash: md5
-      md5: a2c6300f6ef7ed2bd3344601d4b4fe50
-      size: 5689
+      md5: 0eca8f6040acb83ac749c21cc37c7bcc
+      size: 58
     - path: nodes/PredictionMetrics/forces.json
       hash: md5
-      md5: a8ba56de29a0146059292a63f155bbfc
-      size: 190
+      md5: 9718b23cbb290db0a636547f9e751687
+      size: 194
     - path: nodes/PredictionMetrics/forces_df.csv
       hash: md5
-      md5: 08efaefa25439d512f68868c1689fe7e
-      size: 278606
+      md5: fef372801409b6142694f2087e010ff2
+      size: 57361
     - path: nodes/PredictionMetrics/hydro_stress.json
       hash: md5
-      md5: b99517afd569c861b8f8fdb65f9f0f3f
-      size: 192
+      md5: 17a4228eb501a7df3d88278f30bc85e8
+      size: 179
     - path: nodes/PredictionMetrics/node-meta.json
       hash: md5
-      md5: 46705ab53838c5c6f9c48f5722004e4b
+      md5: 561c38018190165c19d3cb2205998b7f
       size: 48
     - path: nodes/PredictionMetrics/plots
       hash: md5
-      md5: c040301772315a234d3d3d2f12f66d98.dir
-      size: 241608
+      md5: bfa642772f9d90309ee9442de01db75d.dir
+      size: 256201
       nfiles: 5
     - path: nodes/PredictionMetrics/stress.json
       hash: md5
-      md5: ce3b5c4559f8eca7f3b907972c6969e6
-      size: 192
+      md5: 804959a37451f0b8ee5df6c97250d403
+      size: 185
     - path: nodes/PredictionMetrics/stress_deviatoric_df.csv
       hash: md5
-      md5: 2eb8f085b54f3e7416f88aea920914b4
-      size: 48828
+      md5: 14895750e7eea2951ca1650cb4febaf5
+      size: 344
     - path: nodes/PredictionMetrics/stress_df.csv
       hash: md5
-      md5: 6e8f5f07b0bc6e3dd48c983b1fc64552
-      size: 43037
+      md5: 542c5274b81fcf0f3e084d6cb84a29fd
+      size: 317
     - path: nodes/PredictionMetrics/stress_hydrostatic_df.csv
       hash: md5
-      md5: 5673133e71771c96338dcd89d10c0700
-      size: 5771
+      md5: 2ca83d6fa5a225913ebbf7d8f3064d8a
+      size: 63
   TestData:
     cmd: zntrack run src.ReadNPZ --name TestData
     deps:
@@ -223,13 +223,13 @@ stages:
     params:
       params.yaml:
         TestData:
-          regex: CrW.cfg_valid_1
+          regex: deformed_CrW
     outs:
     - path: nodes/TestData/atoms.h5
       hash: md5
-      md5: 9d08154c62be75c9c6d762b3d8ea3af7
-      size: 3554440
+      md5: c1f9176afce816838c71ffe220ad0bdf
+      size: 65880
     - path: nodes/TestData/node-meta.json
       hash: md5
-      md5: e8fe108739715c6bcd2cf9e25ce361ba
+      md5: 0a7c085dc219851d4508b7339c68cee8
       size: 48

@@ -7,4 +7,4 @@ ReadNPZ:
 ReadNPZ_1:
     regex: 4comp.cfg_valid_1
 TestData:
-    regex: CrW.cfg_valid_1
+    regex: deformed_CrW
