@@ -7,4 +7,4 @@ ReadNPZ:
 ReadNPZ_1:
     regex: 4comp.cfg_valid_1
 TestData:
-    regex: total_md.cfg_valid_1
+    regex: noW.cfg_valid_1
