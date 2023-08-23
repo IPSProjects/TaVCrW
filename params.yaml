@@ -3,6 +3,6 @@ MLModel:
     use_forces: true
     use_stresses: false
 ReadNPZ:
-    regex: 4comp.cfg_train_1
+    regex: 4comp.cfg_train_4
 ReadNPZ_1:
-    regex: 4comp.cfg_valid_1
+    regex: 4comp.cfg_valid_4
