@@ -13,6 +13,13 @@
             "value": "nodes/ReadNPZ_1"
         }
     },
+    "TestData": {
+        "directory": "data",
+        "nwd": {
+            "_type": "pathlib.Path",
+            "value": "nodes/TestData"
+        }
+    },
     "MLModel": {
         "config": "mace.yaml",
         "data": {
@@ -80,7 +87,7 @@
                     "value": {
                         "module": "src",
                         "cls": "ReadNPZ",
-                        "name": "ReadNPZ_1",
+                        "name": "TestData",
                         "remote": null,
                         "rev": null
                     }

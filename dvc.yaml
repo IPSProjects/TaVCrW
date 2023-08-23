@@ -33,8 +33,8 @@ stages:
     - nodes/MLModel/test-data.extxyz
     - nodes/MLModel/train-data.extxyz
     - nodes/MLModel/training.csv
-    - nodes/ReadNPZ_1/atoms.h5
-    - nodes/ReadNPZ_1/node-meta.json
+    - nodes/TestData/atoms.h5
+    - nodes/TestData/node-meta.json
     metrics:
     - nodes/Prediction/node-meta.json:
         cache: false
@@ -87,3 +87,14 @@ stages:
     - nodes/ReadNPZ_1/atoms.h5
     params:
     - ReadNPZ_1
+  TestData:
+    cmd: zntrack run src.ReadNPZ --name TestData
+    deps:
+    - data
+    metrics:
+    - nodes/TestData/node-meta.json:
+        cache: false
+    outs:
+    - nodes/TestData/atoms.h5
+    params:
+    - TestData

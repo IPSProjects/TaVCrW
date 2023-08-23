@@ -6,3 +6,5 @@ ReadNPZ:
     regex: 4comp.cfg_train_1
 ReadNPZ_1:
     regex: 4comp.cfg_valid_1
+TestData:
+    regex: 4comp.cfg_valid_1
